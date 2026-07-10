@@ -1,20 +1,262 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Site removed</title>
-  <style>
-    body { margin:0; background:#f6f1e8; color:#293f53; font-family:Arial,sans-serif; display:grid; place-items:center; min-height:100vh; }
-    .box { text-align:center; padding:40px; }
-    h1 { font-size:48px; margin:0 0 12px; color:#17324d; }
-    p { font-size:20px; color:#52697c; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krakow Family Itinerary</title>
+    <style>
+        :root {
+            --bg: #0f0f0f;
+            --card: #1a1a1a;
+            --border: #2a2a2a;
+            --text: #e0e0e0;
+            --muted: #aaa;
+            --accent: #03dac6;
+            --purple: #bb86fc;
+            --blue: #90caf9;
+            --food-bg: #1e1a24;
+        }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; padding: 16px; max-width: 800px; margin: 0 auto; }
+        h1 { color: #f5f5f5; text-align: center; margin-bottom: 4px; }
+        h2 { color: var(--purple); margin-top: 32px; border-bottom: 1px solid var(--border); padding-bottom: 6px; }
+        .subtitle { text-align: center; color: var(--muted); font-size: 0.9em; margin-top: 0; margin-bottom: 24px; }
+
+        details { background: var(--card); border-radius: 10px; margin: 14px 0; border: 1px solid var(--border); overflow: hidden; transition: all 0.2s; }
+        details[open] { border-color: #444; }
+        summary { font-weight: 600; color: var(--accent); cursor: pointer; padding: 14px 16px; list-style: none; display: flex; align-items: center; gap: 12px; user-select: none; }
+        summary::-webkit-details-marker { display: none; }
+        summary::before { content: '▶'; font-size: 0.7em; transition: transform 0.2s; display: inline-block; min-width: 14px; }
+        details[open] summary::before { transform: rotate(90deg); }
+        .time { font-size: 0.9em; color: var(--muted); white-space: nowrap; }
+        .location { color: var(--blue); font-weight: 500; }
+        .extra { padding: 0 16px 16px 44px; font-size: 0.9em; color: #ccc; }
+        .map-link { display: inline-block; background: #2a2a2a; color: var(--blue); padding: 3px 10px; border-radius: 4px; text-decoration: none; font-size: 0.8em; margin-top: 6px; transition: background 0.2s; }
+        .map-link:hover { background: #333; }
+
+        .food, .tips { background: var(--card); border-radius: 10px; padding: 16px; margin: 14px 0; border: 1px solid var(--border); }
+        .food h3, .tips h3 { color: var(--accent); margin-top: 0; }
+        ul { margin: 6px 0 0 20px; }
+        li { margin: 5px 0; }
+
+        /* Image cards */
+        .img-card { width: 100%; height: 200px; border-radius: 8px; overflow: hidden; margin: 10px 0; background: #1e1e2e; display: flex; align-items: center; justify-content: center; border: 1px solid var(--border); }
+        .img-card svg { width: 100%; height: 100%; }
+        .img-card-sm { width: 100%; height: 140px; border-radius: 8px; overflow: hidden; margin: 8px 0; background: #1e1e2e; display: flex; align-items: center; justify-content: center; border: 1px solid var(--border); }
+        .img-card-sm svg { width: 100%; height: 100%; }
+
+        /* Food grid */
+        .food-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; margin-top: 16px; }
+        .food-card { background: var(--food-bg); border-radius: 10px; overflow: hidden; border: 1px solid var(--border); transition: transform 0.2s, border-color 0.2s; }
+        .food-card:hover { transform: translateY(-2px); border-color: #444; }
+        .food-card .img-card-sm { margin: 0; border-radius: 0; border: none; border-bottom: 1px solid var(--border); }
+        .food-card .food-info { padding: 10px 12px; }
+        .food-card .food-info strong { color: var(--accent); display: block; margin-bottom: 2px; }
+        .food-card .food-info span { font-size: 0.8em; color: var(--muted); }
+
+        hr { border-color: var(--border); margin: 32px 0; }
+        footer { text-align: center; color: var(--muted); font-size: 0.85em; padding: 20px 0; }
+    </style>
 </head>
 <body>
-  <div class="box">
-    <h1>This site has been removed.</h1>
-    <p>The content that was here is no longer available.</p>
-  </div>
+    <h1>🗺️ Krakow Family Itinerary</h1>
+    <p class="subtitle">Aug 3–5, 2026 &nbsp;|&nbsp; Toddler-friendly &nbsp;|&nbsp; Back by 19:30 daily</p>
+
+    <!-- ===== DAY 1 ===== -->
+    <h2>📅 Day 1 – Monday, Aug 3</h2>
+
+    <details open>
+        <summary><span class="time">10:30</span> – Arrive &amp; Lunch &nbsp;<span class="location">Przystanek Pierogarnia (Rynek)</span></summary>
+        <div class="extra">
+            <div class="img-card"><svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#4a3728"/><stop offset="100%" stop-color="#2a1f18"/></linearGradient></defs><rect width="400" height="200" fill="url(#g1)"/><text x="200" y="100" text-anchor="middle" fill="#e8c97a" font-size="60">🥟</text><text x="200" y="165" text-anchor="middle" fill="#cba870" font-size="14">Fruit Pierogi</text></svg></div>
+            Fruit pierogi (sweet with strawberries or blueberries) – toddler favorite. Quick, cheap, open 24h.
+            <br><a class="map-link" href="https://maps.google.com/?q=Przystanek+Pierogarnia+Rynek+G%C5%82%C3%B3wny+Krak%C3%B3w" target="_blank">📍 Open in Google Maps</a>
+        </div>
+    </details>
+
+    <details>
+        <summary><span class="time">12:00</span> – Explore Rynek Główny &nbsp;<span class="location">Main Market Square</span></summary>
+        <div class="extra">
+            <div class="img-card"><svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="sky1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#5b8cb8"/><stop offset="100%" stop-color="#c8dae8"/></linearGradient></defs><rect width="400" height="200" fill="url(#sky1)"/><rect x="80" y="60" width="40" height="140" fill="#8b7355" rx="2"/><rect x="130" y="50" width="40" height="150" fill="#9b8365" rx="2"/><polygon points="130,50 150,20 170,50" fill="#6b4c3b"/><rect x="200" y="70" width="40" height="130" fill="#8b7355" rx="2"/><rect x="280" y="55" width="50" height="145" fill="#7b6345" rx="2"/><polygon points="280,55 305,25 330,55" fill="#5b3c2b"/><rect x="0" y="150" width="400" height="50" fill="#c4a87c"/><circle cx="350" cy="40" r="20" fill="#f5d76e" opacity="0.8"/><text x="200" y="185" text-anchor="middle" fill="#4a3020" font-size="11">Rynek Główny · St. Mary's Basilica</text></svg></div>
+            Watch pigeons, hear the hourly bugle call (hejnał) from St. Mary's Basilica, peek at the Cloth Hall (Sukiennice) for wooden toys, optional climb of Town Hall Tower (free Mondays 11–15:00).
+            <br><a class="map-link" href="https://maps.google.com/?q=Rynek+G%C5%82%C3%B3wny+Krak%C3%B3w" target="_blank">📍 Open in Google Maps</a>
+        </div>
+    </details>
+
+    <details>
+        <summary><span class="time">13:30</span> – Wawel Hill &amp; Dragon's Den &nbsp;<span class="location">Wawel Castle</span></summary>
+        <div class="extra">
+            <div class="img-card"><svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="sky2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#4a6fa5"/><stop offset="100%" stop-color="#a4c2e8"/></linearGradient></defs><rect width="400" height="200" fill="url(#sky2)"/><rect x="30" y="40" width="340" height="130" fill="#d4b896" rx="3"/><rect x="60" y="60" width="50" height="60" fill="#8b6914"/><rect x="130" y="50" width="40" height="70" fill="#9b7924"/><rect x="190" y="55" width="60" height="65" fill="#8b6914"/><rect x="280" y="60" width="50" height="60" fill="#7b5914"/><rect x="0" y="170" width="400" height="30" fill="#3a6b3a"/><circle cx="340" cy="45" r="18" fill="#f5d76e" opacity="0.7"/><text x="200" y="15" text-anchor="middle" fill="#f5f5f5" font-size="10">🏰</text><text x="360" y="185" text-anchor="middle" fill="#2a4a2a" font-size="28">🐉</text></svg></div>
+            Free to wander the courtyards and gardens. Visit the Dragon's Den (Smocza Jama) – a limestone cave with a fire-breathing statue. Great for kids' imagination.
+            <br><a class="map-link" href="https://maps.google.com/?q=Wawel+Castle+Krak%C3%B3w" target="_blank">📍 Open in Google Maps</a>
+        </div>
+    </details>
+
+    <details>
+        <summary><span class="time">15:00</span> – Planty Park / Vistula Embankment &nbsp;<span class="location">Planty Park</span></summary>
+        <div class="extra">
+            <div class="img-card"><svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="sky3" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#87ceeb"/><stop offset="100%" stop-color="#e0f0e8"/></linearGradient></defs><rect width="400" height="200" fill="url(#sky3)"/><rect x="0" y="160" width="400" height="40" fill="#4a8c3f"/><circle cx="60" cy="100" r="35" fill="#3a7c2f" opacity="0.9"/><circle cx="160" cy="80" r="45" fill="#2a6c1f" opacity="0.85"/><circle cx="280" cy="90" r="40" fill="#3a7c2f" opacity="0.9"/><circle cx="360" cy="100" r="30" fill="#4a8c3f" opacity="0.85"/><rect x="50" y="140" width="300" height="4" fill="#c4a87c" rx="2"/><text x="200" y="180" text-anchor="middle" fill="#1a4a1a" font-size="11">🌳 Planty Park</text></svg></div>
+            Stroll or let the toddler nap in the green ring around Old Town. Wide, flat paths and views of Wawel from the Vistula riverbank.
+            <br><a class="map-link" href="https://maps.google.com/?q=Planty+Park+Krak%C3%B3w" target="_blank">📍 Open in Google Maps</a>
+        </div>
+    </details>
+
+    <details>
+        <summary><span class="time">16:30</span> – Early Dinner &nbsp;<span class="location">Hevre Café (Kazimierz)</span></summary>
+        <div class="extra">
+            <div class="img-card"><svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="cafe1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#2a1f2e"/><stop offset="100%" stop-color="#1a0f1e"/></linearGradient></defs><rect width="400" height="200" fill="url(#cafe1)"/><circle cx="200" cy="70" r="40" fill="none" stroke="#c9a84c" stroke-width="3"/><circle cx="200" cy="70" r="30" fill="none" stroke="#c9a84c" stroke-width="1.5" opacity="0.5"/><line x1="200" y1="30" x2="200" y2="25" stroke="#c9a84c" stroke-width="2"/><rect x="140" y="110" width="120" height="60" fill="#3a2f3e" rx="4"/><rect x="180" y="120" width="40" height="20" fill="#4a3f4e" rx="3"/><text x="200" y="145" text-anchor="middle" fill="#c9a84c" font-size="9">☕ Hevre Café</text><text x="200" y="195" text-anchor="middle" fill="#8a7a6e" font-size="9">✡ Historic Synagogue Interior</text></svg></div>
+            Set inside the old synagogue, varied menu with kid-friendly options (pasta, pancakes). Quiet atmosphere.
+            <br><a class="map-link" href="https://maps.google.com/?q=Hevre+Cafe+Kazimierz+Krak%C3%B3w" target="_blank">📍 Open in Google Maps</a>
+        </div>
+    </details>
+
+    <!-- ===== DAY 2 ===== -->
+    <h2>📅 Day 2 – Tuesday, Aug 4</h2>
+
+    <details>
+        <summary><span class="time">10:00</span> – Kazimierz Stroll &nbsp;<span class="location">Plac Nowy</span></summary>
+        <div class="extra">
+            <div class="img-card"><svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="sky4" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#6b8fad"/><stop offset="100%" stop-color="#d4c8b8"/></linearGradient></defs><rect width="400" height="200" fill="url(#sky4)"/><rect x="0" y="100" width="400" height="100" fill="#c4a880"/><rect x="50" y="70" width="70" height="60" fill="#9b8b7b" rx="2"/><rect x="150" y="60" width="80" height="70" fill="#a89b8b" rx="2"/><rect x="260" y="65" width="70" height="65" fill="#8b7b6b" rx="2"/><circle cx="340" cy="30" r="22" fill="#f5e6c8" opacity="0.7"/><text x="200" y="180" text-anchor="middle" fill="#4a3020" font-size="11">🏘️ Plac Nowy · Kazimierz</text></svg></div>
+            Heart of the Jewish Quarter. Plac Nowy hosts a flea market (stalls even on weekdays). Grab a zapiekanka from the okrągłak hall.
+            <br><a class="map-link" href="https://maps.google.com/?q=Plac+Nowy+Krak%C3%B3w" target="_blank">📍 Open in Google Maps</a>
+        </div>
+    </details>
+
+    <details>
+        <summary><span class="time">11:30</span> – Lunch – Zapiekanka &nbsp;<span class="location">Okrąglak Hall</span></summary>
+        <div class="extra">
+            <div class="img-card"><svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="pizza1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#5a3a1a"/><stop offset="100%" stop-color="#3a2010"/></linearGradient></defs><rect width="400" height="200" fill="url(#pizza1)"/><ellipse cx="200" cy="90" rx="100" ry="30" fill="#d4a854"/><ellipse cx="200" cy="85" rx="90" ry="25" fill="#f5c96e"/><circle cx="170" cy="82" r="8" fill="#8b6914" opacity="0.6"/><circle cx="210" cy="80" r="7" fill="#8b6914" opacity="0.6"/><circle cx="230" cy="88" r="9" fill="#8b6914" opacity="0.6"/><circle cx="155" cy="90" r="6" fill="#8b6914" opacity="0.6"/><rect x="140" y="120" width="120" height="10" fill="#c4a060" rx="3"/><text x="200" y="175" text-anchor="middle" fill="#e8c97a" font-size="13">🧀 Zapiekanka</text></svg></div>
+            Classic open-faced baguette with mushrooms and cheese, or plain for the toddler. Cheap, filling, and beloved by kids.
+            <br><a class="map-link" href="https://maps.google.com/?q=Okr%C4%85glak+Plac+Nowy+Krak%C3%B3w" target="_blank">📍 Open in Google Maps</a>
+        </div>
+    </details>
+
+    <details>
+        <summary><span class="time">13:00</span> – Playground / Vistula Embankment &nbsp;<span class="location">Vistula Boulevard</span></summary>
+        <div class="extra">
+            <div class="img-card"><svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="river1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#7eb5d6"/><stop offset="100%" stop-color="#d4e8f0"/></linearGradient></defs><rect width="400" height="200" fill="url(#river1)"/><rect x="0" y="100" width="400" height="100" fill="#4a8ab5"/><rect x="0" y="95" width="400" height="8" fill="#3a7aa5" rx="2"/><rect x="0" y="170" width="400" height="30" fill="#6a9a65"/><path d="M0,120 Q50,115 100,125 Q150,135 200,120 Q250,105 300,125 Q350,140 400,120" fill="none" stroke="#6ab5d6" stroke-width="1.5" opacity="0.6"/><text x="200" y="190" text-anchor="middle" fill="#1a3a1a" font-size="11">🌊 Vistula River · Playgrounds</text></svg></div>
+            Multiple free, safe playgrounds near cafes. Flat promenade along the river is perfect for a stroller walk.
+            <br><a class="map-link" href="https://maps.google.com/?q=Vistula+Boulevard+Kazimierz+Krak%C3%B3w" target="_blank">📍 Open in Google Maps</a>
+        </div>
+    </details>
+
+    <details>
+        <summary><span class="time">14:30</span> – Manggha Museum &nbsp;<span class="location">Manggha Museum (Japanese Art)</span></summary>
+        <div class="extra">
+            <div class="img-card"><svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="mang1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#3a4a5a"/><stop offset="100%" stop-color="#1a2a3a"/></linearGradient></defs><rect width="400" height="200" fill="url(#mang1)"/><rect x="80" y="30" width="240" height="140" fill="#2a3a4a" rx="4" stroke="#5a6a7a" stroke-width="1"/><rect x="100" y="50" width="60" height="60" fill="#c4302b" rx="2" opacity="0.7"/><rect x="180" y="50" width="60" height="60" fill="#2b60c4" rx="2" opacity="0.7"/><rect x="260" y="50" width="40" height="40" fill="#c4a82b" rx="2" opacity="0.7"/><rect x="100" y="120" width="100" height="10" fill="#4a5a6a" rx="2"/><text x="200" y="190" text-anchor="middle" fill="#8a9aaa" font-size="11">🏯 Manggha Museum · Japanese Art</text></svg></div>
+            Interactive exhibits, origami workshops, colorful displays. Free on Tuesdays (10:00–18:00) for the main gallery.
+            <br><a class="map-link" href="https://maps.google.com/?q=Manggha+Museum+Krak%C3%B3w" target="_blank">📍 Open in Google Maps</a>
+        </div>
+    </details>
+
+    <details>
+        <summary><span class="time">16:30</span> – Dinner in Kazimierz &nbsp;<span class="location">Przystanek Pierogarnia (Kazimierz)</span></summary>
+        <div class="extra">
+            <div class="img-card"><svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="g2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#5a4738"/><stop offset="100%" stop-color="#3a2f28"/></linearGradient></defs><rect width="400" height="200" fill="url(#g2)"/><text x="200" y="90" text-anchor="middle" font-size="48">🥟🥟🥟</text><text x="200" y="145" text-anchor="middle" fill="#f5d76e" font-size="12">More Pierogi!</text><text x="200" y="175" text-anchor="middle" fill="#cba870" font-size="10">Sweet fruit varieties · Kid favorite</text></svg></div>
+            Return to the pierogi standby; kids love the sweet fruit varieties. Casual, quick service.
+            <br><a class="map-link" href="https://maps.google.com/?q=Przystanek+Pierogarnia+Kazimierz+Krak%C3%B3w" target="_blank">📍 Open in Google Maps</a>
+        </div>
+    </details>
+
+    <!-- ===== DAY 3 ===== -->
+    <h2>📅 Day 3 – Wednesday, Aug 5 (Departure)</h2>
+
+    <details>
+        <summary><span class="time">10:00</span> – St. Francis Basilica &nbsp;<span class="location">Bazylika św. Franciszka</span></summary>
+        <div class="extra">
+            <div class="img-card"><svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="church1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1a2a4a"/><stop offset="100%" stop-color="#0a1a3a"/></linearGradient></defs><rect width="400" height="200" fill="url(#church1)"/><polygon points="200,10 140,80 260,80" fill="#8b6b4b"/><rect x="150" y="80" width="100" height="100" fill="#a08060"/><rect x="160" y="90" width="30" height="50" fill="#3a5a8a" rx="15" opacity="0.8"/><rect x="210" y="90" width="30" height="50" fill="#4a6a9a" rx="15" opacity="0.8"/><circle cx="200" cy="40" r="8" fill="#f5d76e" opacity="0.6"/><text x="200" y="195" text-anchor="middle" fill="#8a9aaa" font-size="10">⛪ St. Francis Basilica · Art Nouveau</text></svg></div>
+            Stunning Art Nouveau stained glass and peaceful interior. Quick and stroller-friendly.
+            <br><a class="map-link" href="https://maps.google.com/?q=Bazylika+%C5%9Bw.+Franciszka+Krak%C3%B3w" target="_blank">📍 Open in Google Maps</a>
+        </div>
+    </details>
+
+    <details>
+        <summary><span class="time">11:30</span> – Lunch – Pierogi &amp; Kotlet Schabowy &nbsp;<span class="location">Przypiecek</span></summary>
+        <div class="extra">
+            <div class="img-card"><svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="meal1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#3a2a1a"/><stop offset="100%" stop-color="#1a1008"/></linearGradient></defs><rect width="400" height="200" fill="url(#meal1)"/><ellipse cx="140" cy="100" rx="80" ry="35" fill="#c4944a"/><ellipse cx="140" cy="95" rx="70" ry="28" fill="#d4a854"/><rect x="250" y="60" width="90" height="55" fill="#b8783a" rx="6"/><rect x="255" y="65" width="80" height="22" fill="#d4a060" rx="3"/><rect x="255" y="90" width="80" height="22" fill="#e8c070" rx="3"/><text x="140" y="175" text-anchor="middle" fill="#f5d76e" font-size="10">🥟 Pierogi</text><text x="295" y="140" text-anchor="middle" fill="#f5d76e" font-size="10">🍖 Kotlet Schabowy</text></svg></div>
+            24/7 pierogi bar; sweet fruit pierogi for the toddler, traditional pork schnitzel for adults.
+            <br><a class="map-link" href="https://maps.google.com/?q=Przypiecek+Krak%C3%B3w" target="_blank">📍 Open in Google Maps</a>
+        </div>
+    </details>
+
+    <details>
+        <summary><span class="time">12:30</span> – Playground – Skałki Twardowskiego &nbsp;<span class="location">Park Linowy</span></summary>
+        <div class="extra">
+            <div class="img-card"><svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="park1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#5a8a4a"/><stop offset="100%" stop-color="#2a4a1a"/></linearGradient></defs><rect width="400" height="200" fill="url(#park1)"/><circle cx="100" cy="80" r="40" fill="#3a6a2a" opacity="0.8"/><circle cx="250" cy="60" r="50" fill="#2a5a1a" opacity="0.8"/><circle cx="350" cy="100" r="35" fill="#3a6a2a" opacity="0.8"/><line x1="80" y1="120" x2="320" y2="120" stroke="#8b6b3a" stroke-width="3"/><line x1="80" y1="120" x2="80" y2="60" stroke="#8b6b3a" stroke-width="2"/><line x1="320" y1="120" x2="320" y2="50" stroke="#8b6b3a" stroke-width="2"/><text x="200" y="190" text-anchor="middle" fill="#c4e8a4" font-size="11">🌲 Skałki Twardowskiego · Ropes Course</text></svg></div>
+            Outdoor ropes course with low-level sections for young kids (supervised). Lots of wooded space to explore.
+            <br><a class="map-link" href="https://maps.google.com/?q=Ska%C5%83ki+Twardowskiego+Krak%C3%B3w" target="_blank">📍 Open in Google Maps</a>
+        </div>
+    </details>
+
+    <details>
+        <summary><span class="time">15:30</span> – Final Snack – Good Lood Ice Cream &nbsp;<span class="location">Good Lood</span></summary>
+        <div class="extra">
+            <div class="img-card"><svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ice1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f5e6d8"/><stop offset="100%" stop-color="#e8d4c0"/></linearGradient></defs><rect width="400" height="200" fill="url(#ice1)"/><circle cx="200" cy="50" r="30" fill="#f5a0b8"/><circle cx="200" cy="80" r="30" fill="#f5d0a8"/><circle cx="200" cy="110" r="30" fill="#a8d4f5"/><polygon points="170,140 230,140 210,190 190,190" fill="#d4a860"/><text x="200" y="15" text-anchor="middle" fill="#c46070" font-size="9">🍓</text><text x="200" y="185" text-anchor="middle" fill="#8b6b3a" font-size="10">🍦 Good Lood · Artisan Ice Cream</text></svg></div>
+            Award-winning artisan ice cream; try fruit sorbets (dairy-free) or classic vanilla. A happy treat before departure.
+            <br><a class="map-link" href="https://maps.google.com/?q=Good+Lood+Krak%C3%B3w" target="_blank">📍 Open in Google Maps</a>
+        </div>
+    </details>
+
+    <details>
+        <summary><span class="time">17:30</span> – 🚗 Car Pickup</summary>
+        <div class="extra">
+            <div class="img-card"><svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="car1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#4a3a6a"/><stop offset="100%" stop-color="#2a1a4a"/></linearGradient></defs><rect width="400" height="200" fill="url(#car1)"/><rect x="60" y="70" width="200" height="60" fill="#5a4a8a" rx="20"/><rect x="80" y="50" width="120" height="40" fill="#6a5a9a" rx="15"/><circle cx="100" cy="140" r="18" fill="#2a2a2a"/><circle cx="200" cy="140" r="18" fill="#2a2a2a"/><text x="280" y="120" text-anchor="middle" fill="#c4b8e8" font-size="30">🚗</text><text x="200" y="185" text-anchor="middle" fill="#a498c8" font-size="11">Meet driver → Airport</text></svg></div>
+            Meet your driver at the accommodation (or agreed point) and head to the airport or next destination.
+        </div>
+    </details>
+
+    <!-- ===== FOODS SECTION ===== -->
+    <h2>🍴 Foods to Try</h2>
+    <div class="food-grid">
+
+        <div class="food-card">
+            <div class="img-card-sm"><svg viewBox="0 0 220 140" xmlns="http://www.w3.org/2000/svg"><rect width="220" height="140" fill="#2a1f18"/><text x="110" y="80" text-anchor="middle" font-size="60">🥟</text></svg></div>
+            <div class="food-info"><strong>Pierogi (sweet fruit)</strong><span>Przystanek Pierogarnia, Przypiecek</span></div>
+        </div>
+
+        <div class="food-card">
+            <div class="img-card-sm"><svg viewBox="0 0 220 140" xmlns="http://www.w3.org/2000/svg"><rect width="220" height="140" fill="#3a2010"/><ellipse cx="110" cy="65" rx="70" ry="20" fill="#d4a854"/><ellipse cx="110" cy="62" rx="60" ry="16" fill="#f5c96e"/><text x="110" y="110" text-anchor="middle" fill="#f5d76e" font-size="40">🥖</text></svg></div>
+            <div class="food-info"><strong>Zapiekanka</strong><span>Okrąglak hall, Plac Nowy</span></div>
+        </div>
+
+        <div class="food-card">
+            <div class="img-card-sm"><svg viewBox="0 0 220 140" xmlns="http://www.w3.org/2000/svg"><rect width="220" height="140" fill="#3a3020"/><circle cx="110" cy="55" r="35" fill="#d4a860" stroke="#c49440" stroke-width="4"/><circle cx="110" cy="55" r="22" fill="#2a2018"/><text x="110" y="120" text-anchor="middle" fill="#e8c97a" font-size="30">🥨</text></svg></div>
+            <div class="food-info"><strong>Obwarzanek</strong><span>Street vendors (~PLN 3)</span></div>
+        </div>
+
+        <div class="food-card">
+            <div class="img-card-sm"><svg viewBox="0 0 220 140" xmlns="http://www.w3.org/2000/svg"><rect width="220" height="140" fill="#3a2a1a"/><rect x="35" y="35" width="150" height="70" fill="#c48440" rx="8"/><rect x="45" y="45" width="130" height="25" fill="#d4a050" rx="4"/><rect x="45" y="74" width="130" height="25" fill="#e8c070" rx="4"/></svg></div>
+            <div class="food-info"><strong>Kotlet schabowy</strong><span>Milk bars (bar mleczny)</span></div>
+        </div>
+
+        <div class="food-card">
+            <div class="img-card-sm"><svg viewBox="0 0 220 140" xmlns="http://www.w3.org/2000/svg"><rect width="220" height="140" fill="#3a2a2a"/><circle cx="110" cy="60" r="45" fill="#f5e6c8" opacity="0.9"/><circle cx="110" cy="60" r="40" fill="#faf0dc" opacity="0.5"/><text x="110" y="125" text-anchor="middle" fill="#d4a860" font-size="30">🥞</text></svg></div>
+            <div class="food-info"><strong>Naleśniki</strong><span>Thin crepes, sweet or savory</span></div>
+        </div>
+
+        <div class="food-card">
+            <div class="img-card-sm"><svg viewBox="0 0 220 140" xmlns="http://www.w3.org/2000/svg"><rect width="220" height="140" fill="#f5e6d8"/><circle cx="80" cy="55" r="22" fill="#f5a0b8"/><circle cx="120" cy="55" r="22" fill="#f5d0a8"/><circle cx="160" cy="55" r="22" fill="#a8d4f5"/><polygon points="95,77 145,77 130,105 110,105" fill="#d4a860"/></svg></div>
+            <div class="food-info"><strong>Ice cream</strong><span>Good Lood, Katane</span></div>
+        </div>
+    </div>
+
+    <!-- ===== TIPS ===== -->
+    <h2>🧭 Tips &amp; Tricks</h2>
+    <div class="tips">
+        <ul>
+            <li>🚆 Train from airport (PLN 17) – avoid taxis</li>
+            <li>📱 Use Bolt app – skip rank taxis</li>
+            <li>👶 Lightweight stroller recommended (cobblestones in places)</li>
+            <li>🎫 Validate tram tickets if you ride</li>
+            <li>⚠️ Avoid strip-club promoters near Rynek (scams)</li>
+            <li>📅 Book Auschwitz/Wieliczka weeks ahead if you plan later</li>
+            <li>👨‍👩‍👧 Dining is very family-friendly; staff welcoming to kids</li>
+        </ul>
+    </div>
+
+    <hr>
+    <footer>
+        <p>🏠 <em>Stay suggestion: Book an apartment in Old Town or Kazimierz (walkable, kitchen, ~$120–180/night).</em></p>
+        <p style="color:#666;">All images are embedded SVG illustrations — this file works fully offline.</p>
+    </footer>
 </body>
 </html>
